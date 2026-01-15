@@ -39,22 +39,22 @@
     };
 
     behaviors {
-        HT_copy_F_layer: HT_copy_F_layer {
+        ht_copy_f: ht_copy_f_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "HT_COPY_F_LAYER";
-            bindings = <&mo>, <&mt>;
-
+            label = "HT_COPY_F";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            hold = <&mo F_Layers>;       // Layer on hold
+            tap = <&mt LCTL &kp C>;      // Tap sends Ctrl+C
             flavor = "tap-preferred";
+            tapping-term-ms = <200>;      // milliseconds
         };
 
-        HT_paste_BT_layer: HT_paste_BT_layer {
+        ht_paste_bt: ht_paste_bt_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "HT_PASTE_BT_LAYER";
-            bindings = <&mo>, <&mt>;
-
+            label = "HT_PASTE_BT";
             #binding-cells = <2>;
+            hold = <&mo BT_Layers>;      // Layer on hold
+            tap = <&mt LCTL &kp V>;      // Tap sends Ctrl+V
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
